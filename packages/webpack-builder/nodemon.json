@@ -1,0 +1,19 @@
+{
+  "ignore": [
+    "~res/*",
+    "build/*",
+    "node_modules/*",
+    "src/*"
+  ],
+  "watch": [
+    ".browserlistrc",
+    ".eslint.rc",
+    "babel.config.js",
+    "config/*",
+    "index.js",
+    "localConfig.js",
+    "nodemon.json",
+    "projectConfig.js",
+    "scripts/*"
+  ]
+}

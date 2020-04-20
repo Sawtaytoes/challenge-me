@@ -1,0 +1,14 @@
+# build output
+.eslintcache
+
+# configs
+localConfig\.js
+
+# generated
+/.serverBundleCache/*.js
+/build
+/node_modules
+*.log
+
+# misc
+.DS_Store
