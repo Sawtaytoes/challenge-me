@@ -40,16 +40,11 @@ class ZeroEvenOdd {
 			this.nextExecutionState = nextExecutionState
 		}
 		else {
-			// eslint-disable-next-line compat/compat
-			new Promise(resolve => {
-				setTimeout(() => {
-					resolve(
-						this.addToQueue({
-							callback,
-							executionInfo,
-							nextExecutionState,
-						})
-					)
+			setTimeout(() => {
+				this.addToQueue({
+					callback,
+					executionInfo,
+					nextExecutionState,
 				})
 			})
 		}

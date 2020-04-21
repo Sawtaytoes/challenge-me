@@ -56,9 +56,7 @@ const createZeroEvenOddObservable = (
 		)),
 		concatAll(),
 		take(
-			Math.ceil(
-				numberOfOutputValues * 2
-			)
+			numberOfOutputValues * 2
 		),
 		toArray(),
 		map((
