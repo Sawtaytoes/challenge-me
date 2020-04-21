@@ -2,14 +2,25 @@ const { concatMap } = require('rxjs/operators')
 const { from } = require('rxjs')
 
 const tasks = {
+	fieldChainedHtmlFormatting: () => (
+		require('./tasks/fieldChainedHtmlFormatting')
+	),
+	lintScripts: () => (
+		require('./tasks/lintScripts$')
+	),
+	printInOrder: () => (
+		require('./tasks/printInOrder')
+	),
 	zeroEvenOdd: () => (
-		require('./tasks/zeroEvenOdd/createZeroEvenOddObservable')(5)
+		require('./tasks/zeroEvenOdd')
+		.createZeroEvenOddObservable(5)
 	),
 }
 
 const tasksList = {
 	develop: [
-		tasks.zeroEvenOdd,
+		tasks.lintScripts,
+		tasks.fieldChainedHtmlFormatting,
 	],
 }
 
@@ -54,6 +65,15 @@ const runTasks = ({
 			console.info(
 				dashes
 			)
+
+			process.exit()
+		},
+		error: error => {
+			console.error(
+				error
+			)
+
+			process.exit()
 		},
 	})
 }
