@@ -8,22 +8,18 @@ const htmlTagNames = [
 	'span',
 ]
 
-const initialProperties = {
-	createStringFormatter: {
-		value: ({
-			formatHtmlString,
-			htmlTagName,
-		}) => (
-			...values
-		) => (
-			formatHtmlString(
-				`<${htmlTagName}>`
-				.concat(...values)
-				.concat(`</${htmlTagName}>`)
-			)
-		),
-	},
-}
+const createStringFormatter = ({
+	formatHtmlString,
+	htmlTagName,
+}) => (
+	...values
+) => (
+	formatHtmlString(
+		`<${htmlTagName}>`
+		.concat(...values)
+		.concat(`</${htmlTagName}>`)
+	)
+)
 
 const createFormatterProperties = (
 	formatHtmlString = value => value,
@@ -38,7 +34,7 @@ const createFormatterProperties = (
 			[htmlTagName]: {
 				get: function() {
 					const stringFormatter = (
-						this.createStringFormatter({
+						createStringFormatter({
 							formatHtmlString,
 							htmlTagName,
 						})
@@ -59,7 +55,7 @@ const createFormatterProperties = (
 				},
 			},
 		}),
-		initialProperties,
+		{},
 	)
 )
 
@@ -73,7 +69,7 @@ const Format = (
 const formatObjectCreate$ = (
 	from([
 		Format.div.h1('Hello world!'),
-		Format.div.p.span('Hello world2!'),
+		Format.div.p.span('Foo', 'Bar'),
 	])
 	.pipe(
 		tap((
