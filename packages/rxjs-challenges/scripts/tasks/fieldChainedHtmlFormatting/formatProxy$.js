@@ -8,44 +8,63 @@ const htmlTagNames = [
 	'span',
 ]
 
-const initialProperties = {
-	createStringFormatter: ({
-		formatHtmlString,
-		htmlTagName,
-	}) => (
-		...values
+const createStringFormatter = ({
+	formatHtmlString,
+	htmlTagName,
+}) => (
+	...values
+) => (
+	formatHtmlString(
+		`<${htmlTagName}>`
+		.concat(...values)
+		.concat(`</${htmlTagName}>`)
+	)
+)
+
+const proxyOptions = {
+	get: (
+		proxy,
+		propertyName,
 	) => (
-		formatHtmlString(
-			`<${htmlTagName}>`
-			.concat(...values)
-			.concat(`</${htmlTagName}>`)
+		htmlTagNames
+		.includes(propertyName)
+		? (
+			new Proxy(
+				createStringFormatter({
+					formatHtmlString: (
+						Object.is(
+							typeof(proxy),
+							'function',
+						)
+						? proxy
+						: value => value
+					),
+					htmlTagName: propertyName,
+				}),
+				proxyOptions,
+			)
+		)
+		: (
+			Reflect
+			.get(
+				proxy,
+				propertyName,
+			)
 		)
 	),
 }
 
-const createFormatterProperties = (
-	formatHtmlString = value => value,
-) => (
-	formatHtmlString
-)
-
 const Format = (
 	new Proxy(
-		initialProperties,
-		{
-			get: (proxy, propertyName) => (
-				console.log(propertyName)||
-				proxy[propertyName]
-				|| proxy
-			),
-		}
+		{},
+		proxyOptions,
 	)
 )
 
 const formatProxy$ = (
 	from([
 		Format.div.h1('Hello world!'),
-		Format.div.p.span('Hello world2!'),
+		Format.div.p.span('Foo', 'Bar'),
 	])
 	.pipe(
 		tap((
