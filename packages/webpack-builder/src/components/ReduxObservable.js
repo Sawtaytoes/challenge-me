@@ -120,8 +120,6 @@ const ReduxObservable = () => {
 		initialState,
 	)
 
-	console.log({action, state})
-
 	const dispatch = (
 		useCallback(
 			dispatchedAction => {
