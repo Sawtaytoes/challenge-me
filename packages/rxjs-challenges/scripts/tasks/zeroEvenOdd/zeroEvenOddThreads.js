@@ -1,15 +1,15 @@
 const { interval } = require('rxjs')
 
 const threadA$ = (
-	interval(4000)
+	interval(2)
 )
 
 const threadB$ = (
-	interval(3000)
+	interval(4)
 )
 
 const threadC$ = (
-	interval(2000)
+	interval(1)
 )
 
 module.exports = {
