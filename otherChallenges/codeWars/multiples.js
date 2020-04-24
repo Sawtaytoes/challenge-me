@@ -1,18 +1,18 @@
-const solution = maximum = (
-  maximum  0
-   0
-   (
+const solution = maximum => (
+  maximum <= 0
+  ? 0
+  : (
     Array(maximum)
-    .fill(null)
+    .fill()
     .map((
       value,
       index,
-    ) = (
+    ) => (
       index
     ))
     .filter((
       value,
-    ) = (
+    ) => (
       value !== 0
       && (
         value % 3 === 0
@@ -23,7 +23,7 @@ const solution = maximum = (
       (
         total,
         value,
-      ) = (
+      ) => (
         total + value
       ),
       0,
