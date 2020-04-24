@@ -32,7 +32,7 @@ const createFormatterProperties = (
 		) => ({
 			...getterFunctions,
 			[htmlTagName]: {
-				get: function() {
+				get: () => {
 					const stringFormatter = (
 						createStringFormatter({
 							formatHtmlString,
