@@ -35,9 +35,23 @@ const createZeroEvenOddObservable = (
 					)),
 				)
 			),
-			zero$: (
+			zero1$: (
 				threadA$
 				.pipe(
+					filter(value => (
+						value !== 0
+						&& value % 2 === 0
+					)),
+					mapTo(0),
+				)
+			),
+			zero2$: (
+				threadA$
+				.pipe(
+					filter(value => (
+						value !== 0
+						&& value % 2 === 1
+					)),
 					mapTo(0),
 				)
 			),
@@ -45,12 +59,13 @@ const createZeroEvenOddObservable = (
 		concatMap(({
 			even$,
 			odd$,
-			zero$,
+			zero1$,
+			zero2$,
 		}) => (
 			zip(
-				zero$,
+				zero1$,
 				odd$,
-				zero$,
+				zero2$,
 				even$,
 			)
 		)),
