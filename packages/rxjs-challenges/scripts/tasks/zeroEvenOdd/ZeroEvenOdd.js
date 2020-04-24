@@ -81,7 +81,11 @@ class ZeroEvenOdd {
 		this
 		.activeIndexes
 		.zero
-		.push(this.nextIndexes.zero)
+		.push(
+			this
+			.nextIndexes
+			.zero
+		)
 
 		this.addToQueue({
 			callback: (
@@ -112,7 +116,11 @@ class ZeroEvenOdd {
 		this
 		.activeIndexes
 		.even
-		.push(this.nextIndexes.even)
+		.push(
+			this
+			.nextIndexes
+			.even
+		)
 
 		this.addToQueue({
 			callback: (
@@ -140,7 +148,11 @@ class ZeroEvenOdd {
 		this
 		.activeIndexes
 		.odd
-		.push(this.nextIndexes.odd)
+		.push(
+			this
+			.nextIndexes
+			.odd
+		)
 
 		this.addToQueue({
 			callback: (
@@ -163,6 +175,7 @@ class ZeroEvenOdd {
 
 const zeroEvenOdd = new ZeroEvenOdd(5)
 
+// eslint-disable-next-line no-unused-vars
 let output = ''
 
 const joinToOutput = value => {
@@ -179,5 +192,3 @@ zeroEvenOdd.zero(joinToOutput)
 zeroEvenOdd.zero(joinToOutput)
 zeroEvenOdd.zero(joinToOutput)
 zeroEvenOdd.zero(joinToOutput)
-
-setTimeout(() => console.info({output}))
