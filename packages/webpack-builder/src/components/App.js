@@ -2,7 +2,8 @@ import React, { Fragment } from 'react'
 import { css, Global } from '@emotion/core'
 import { hot } from 'react-hot-loader/root'
 
-import ReduxObservable from './ReduxObservable'
+import CustomElementRenderer from '../sawtaytoesFrameworkComponents/CustomElementRenderer'
+// import Transduce from './Transduce'
 
 const App = () => (
 	<Fragment>
@@ -14,7 +15,8 @@ const App = () => (
 			`}
 		/>
 
-		<ReduxObservable />
+		<CustomElementRenderer />
+		{/* <Transduce /> */}
 	</Fragment>
 )
 
