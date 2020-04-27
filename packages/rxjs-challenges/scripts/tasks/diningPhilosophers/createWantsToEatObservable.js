@@ -6,7 +6,7 @@ const { forks } = require('./ids')
 
 const getRandomTime = () => (
 	Math.ceil(
-		Math.random() * 1
+		Math.random() * 10000
 	)
 )
 
@@ -196,8 +196,8 @@ const createWantsToEatObservable = (
 								)
 							}
 
-							console.log(
-								'tryingAgain',
+							console.info(
+								'trying again',
 								philosopherIndex,
 							)
 							tryAgain$

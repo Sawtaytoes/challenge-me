@@ -1,5 +1,5 @@
-const { catchError, concatAll, concatMap, delay, endWith, ignoreElements, groupBy, map, mapTo, mergeAll, mergeMap, tap, toArray } = require('rxjs/operators')
-const { of, range } = require('rxjs')
+const { concatMap, groupBy, map, mergeAll, mergeMap, tap, toArray } = require('rxjs/operators')
+const { range } = require('rxjs')
 
 const createWantsToEatObservable = require('./createWantsToEatObservable')
 const { forks, operations } = require('./ids')
@@ -68,11 +68,6 @@ const createDiningPhilosopherThreads = (
 		}) => (
 			philosopherIndex
 		)),
-		// mergeMap((
-		// 	philosopher$
-		// ) => (
-		// 	philosopher$
-		// )),
 		mergeAll(),
 		mergeMap((
 			props
@@ -88,19 +83,33 @@ const createDiningPhilosopherThreads = (
 					)
 				)),
 				tap((philosopherIndex) => {
-					console.log('eaten', philosopherIndex)
+					console.info(
+						'eaten',
+						philosopherIndex,
+					)
 				}),
-				// toArray(),
-				// tap((philosopherIndexes) => {
-				// 	console.log('done eating', philosopherIndexes)
-				// }),
+				toArray(),
+				map((
+					fulfilledHungerAttacks,
+				) => ({
+					numberOfMealsEaten: fulfilledHungerAttacks.length,
+					philosopherIndex: props.philosopherIndex,
+				})),
 			)
 		)),
-		// toArray(),
-		// tap(() => {
-		// 	stateSubscription
-		// 	.unsubscribe()
-		// }),
+		toArray(),
+		tap((
+			philosophers,
+		) => {
+			console.info(
+				'philosophers that ate',
+				philosophers,
+			)
+		}),
+		tap(() => {
+			stateSubscription
+			.unsubscribe()
+		}),
 	)
 )
 

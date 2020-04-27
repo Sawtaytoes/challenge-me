@@ -27,7 +27,9 @@ const initialState = {
 }
 
 const diningState$ = (
-	new BehaviorSubject(initialState)
+	new BehaviorSubject(
+		initialState
+	)
 )
 
 const stateSubscription = (
