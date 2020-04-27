@@ -11,6 +11,7 @@ module.exports = {
 			'warn',
 			{ ignore: ['\$'] }
 		],
+		'no-unexpected-multiline': 'off',
 		'react-hooks/exhaustive-deps': 'warn',
 		'react-hooks/rules-of-hooks': 'error',
 	},
