@@ -2,6 +2,10 @@ const { concatMap } = require('rxjs/operators')
 const { from } = require('rxjs')
 
 const tasks = {
+	buildH2o: () => (
+		// https://leetcode.com/problems/building-h2o/
+		require('./tasks/buildH2o')
+	),
 	fieldChainedHtmlFormatting: () => (
 		require('./tasks/fieldChainedHtmlFormatting')
 	),
