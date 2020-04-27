@@ -6,6 +6,11 @@ const tasks = {
 		// https://leetcode.com/problems/building-h2o/
 		require('./tasks/buildH2o')
 	),
+	diningPhilosophers: () => (
+		// https://leetcode.com/problems/the-dining-philosophers/
+		require('./tasks/diningPhilosophers')
+		.createDiningPhilosopherThreads(2)
+	),
 	fieldChainedHtmlFormatting: () => (
 		require('./tasks/fieldChainedHtmlFormatting')
 	),
@@ -13,9 +18,11 @@ const tasks = {
 		require('./tasks/lintScripts$')
 	),
 	printInOrder: () => (
+		// https://leetcode.com/problems/print-in-order/
 		require('./tasks/printInOrder')
 	),
 	zeroEvenOdd: () => (
+		// https://leetcode.com/problems/print-zero-even-odd/
 		require('./tasks/zeroEvenOdd')
 		.createZeroEvenOddObservable(5)
 	),
@@ -24,7 +31,7 @@ const tasks = {
 const tasksList = {
 	develop: [
 		tasks.lintScripts,
-		tasks.fieldChainedHtmlFormatting,
+		tasks.diningPhilosophers,
 	],
 }
 
