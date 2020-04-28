@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { css, Global } from '@emotion/core'
 import { hot } from 'react-hot-loader/root'
 
-import CustomElementRenderer from '../sawtaytoesFrameworkComponents/CustomElementRenderer'
+import DiningPhilosophers from './diningPhilosophers/DiningPhilosophers'
 // import Transduce from './Transduce'
 
 const App = () => (
@@ -15,7 +15,9 @@ const App = () => (
 			`}
 		/>
 
-		<CustomElementRenderer />
+		<DiningPhilosophers
+			numberOfHungerAttacks={2}
+		/>
 		{/* <Transduce /> */}
 	</Fragment>
 )

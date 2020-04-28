@@ -12,20 +12,26 @@ export const pipe = (
 			reducer,
 			transducer,
 			index,
-		) => (
-			transducer(
-				reducer,
-				{
-					finalReducer,
-					nextTransducers: (
-						(
-							transducers
-							.slice(index + 1)
-						)
-					),
-				},
+		) => {
+			const nextReducer = (
+				transducer
+				&& (
+					transducer(
+						reducer,
+						{
+							finalReducer,
+							transducerIndex: index,
+							transducers,
+						},
+					)
+				)
 			)
-		),
+
+			return (
+				nextReducer
+				|| null
+			)
+		},
 		finalReducer,
 	)
 )
@@ -61,7 +67,8 @@ const createTransducerCreator = (
 		finalReducer: options.finalReducer,
 		index,
 		nextPipelineReducer,
-		nextTransducers: options.nextTransducers,
+		transducerIndex: options.transducerIndex,
+		transducers: options.transducers,
 		value,
 	})
 )
@@ -121,12 +128,22 @@ export const reduce = (
 		context,
 		finalReducer,
 		index,
-		nextTransducers = [],
+		transducers = [],
 		value,
 	}) => {
+		const prevTransducers = (
+			transducers
+			.slice(0, index)
+		)
+
+		const nextTransducers = (
+			transducers
+			.slice(index + 1)
+		)
+
 		console.log({context})
 
-		const nextTransducer = (
+		const nextValue = (
 			reducer(
 				context,
 				value,
@@ -135,12 +152,23 @@ export const reduce = (
 			)
 		)
 
-		console.log({nextTransducer})
+		const collection = (
+			transducerReduce(
+				pipe(
+					...prevTransducers
+				)(
+					reducer
+				),
+				nextValue,
+			)
+		)
+
+		console.log({nextValue})
 		console.log(index === array.length - 1)
 
 		return (
 			index === array.length - 1
-			? reducer
+			? collection
 			: (
 				transducerReduce(
 					pipe(
@@ -148,7 +176,7 @@ export const reduce = (
 					)(
 						finalReducer
 					),
-					nextTransducer,
+					collection,
 				)
 			)
 		)
