@@ -5,6 +5,13 @@ const isLocalDevelopment = (
 	.get('isLocalDevelopment')
 )
 
+const emotionOptions = {
+	autoLabel: isLocalDevelopment,
+	cssPropOptimization: true,
+	labelFormat: '[local]',
+	sourceMap: isLocalDevelopment,
+}
+
 const plugins = [
 	'@babel/plugin-proposal-class-properties',
 	'@babel/plugin-proposal-object-rest-spread',
@@ -12,12 +19,7 @@ const plugins = [
 	'@babel/plugin-transform-runtime',
 	[
 		'emotion',
-		{
-			autoLabel: isLocalDevelopment,
-			cssPropOptimization: true,
-			labelFormat: '[local]',
-			sourceMap: isLocalDevelopment,
-		},
+		emotionOptions,
 	],
 ]
 
@@ -41,6 +43,10 @@ module.exports = {
 		[
 			'@babel/preset-react',
 			{ development: isLocalDevelopment },
+		],
+		[
+			'@emotion/babel-preset-css-prop',
+			emotionOptions,
 		],
 	],
 }
