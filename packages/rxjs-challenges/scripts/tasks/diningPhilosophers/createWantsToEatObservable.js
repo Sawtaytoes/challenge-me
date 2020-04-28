@@ -200,6 +200,7 @@ const createWantsToEatObservable = (
 								'trying again',
 								philosopherIndex,
 							)
+
 							tryAgain$
 							.next({
 								eat,
