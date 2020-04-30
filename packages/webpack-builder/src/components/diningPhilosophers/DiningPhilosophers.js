@@ -75,7 +75,10 @@ const DiningPhilosophers = ({
 				dispatch,
 				getState: () => stateRef.current,
 			}),
-			[]
+			[
+				dispatch,
+				stateRef,
+			]
 		)
 	)
 

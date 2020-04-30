@@ -209,7 +209,10 @@ const Philosopher = ({
 			timeoutIds.left = (
 				setTimeout(
 					() => {
-						if (!isLeftForkAvailable()) {
+						if (isLeftForkAvailable()) {
+							pickupLeftFork()
+						}
+						else {
 							clearTimeout(
 								timeoutIds.right
 							)
@@ -222,9 +225,6 @@ const Philosopher = ({
 								iterationStep + 1
 							)
 						}
-						else {
-							pickupLeftFork()
-						}
 					},
 					getRandomTime(),
 				)
@@ -233,9 +233,12 @@ const Philosopher = ({
 			timeoutIds.right = (
 				setTimeout(
 					() => {
-						if (!isRightForkAvailable()) {
+						if (isRightForkAvailable()) {
+							pickupRightFork()
+						}
+						else {
 							clearTimeout(
-								timeoutIds.right
+								timeoutIds.left
 							)
 
 							if (hasLeftFork()) {
@@ -245,9 +248,6 @@ const Philosopher = ({
 							setIterationStep(
 								iterationStep + 1
 							)
-						}
-						else {
-							pickupRightFork()
 						}
 					},
 					getRandomTime(),
