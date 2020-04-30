@@ -2,8 +2,7 @@ import React, { Fragment } from 'react'
 import { css, Global } from '@emotion/core'
 import { hot } from 'react-hot-loader/root'
 
-import DiningPhilosophers from './diningPhilosophers/DiningPhilosophers'
-// import Transduce from './Transduce'
+import CanIWin from './canIWin/CanIWin'
 
 const App = () => (
 	<Fragment>
@@ -15,10 +14,10 @@ const App = () => (
 			`}
 		/>
 
-		<DiningPhilosophers
-			numberOfHungerAttacks={2}
+		<CanIWin
+			desiredTotal={67}
+			maxChoosableInteger={15}
 		/>
-		{/* <Transduce /> */}
 	</Fragment>
 )
 
