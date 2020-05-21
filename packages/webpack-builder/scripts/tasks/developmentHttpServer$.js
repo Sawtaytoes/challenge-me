@@ -36,7 +36,6 @@ const developmentHttpServer$ = (
 			httpServer
 			.use(cors())
 
-
 			.use(
 				express
 				.static(
