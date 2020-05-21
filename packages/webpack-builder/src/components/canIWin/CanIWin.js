@@ -2,7 +2,6 @@
 import PropTypes from 'prop-types'
 import React, { memo, useCallback, useEffect, useMemo, useState } from 'react'
 import styled from '@emotion/styled'
-import { hot } from 'react-hot-loader/root'
 
 const StyledButton = styled.button`
 	border-radius: 10px;
