@@ -7,55 +7,46 @@ const createZeroEvenOddObservable = (
 	numberOfOutputValues,
 ) => (
 	of({
-		threadA$,
-		threadB$,
-		threadC$,
+		even$: (
+			threadB$
+			.pipe(
+				filter(value => (
+					value !== 0
+					&& value % 2 === 0
+				)),
+			)
+		),
+		odd$: (
+			threadC$
+			.pipe(
+				filter(value => (
+					value !== 0
+					&& value % 2 === 1
+				)),
+			)
+		),
+		zero1$: (
+			threadA$
+			.pipe(
+				filter(value => (
+					value !== 0
+					&& value % 2 === 0
+				)),
+				mapTo(0),
+			)
+		),
+		zero2$: (
+			threadA$
+			.pipe(
+				filter(value => (
+					value !== 0
+					&& value % 2 === 1
+				)),
+				mapTo(0),
+			)
+		),
 	})
 	.pipe(
-		map(({
-			threadA$,
-			threadB$,
-			threadC$,
-		}) => ({
-			even$: (
-				threadB$
-				.pipe(
-					filter(value => (
-						value !== 0
-						&& value % 2 === 0
-					)),
-				)
-			),
-			odd$: (
-				threadC$
-				.pipe(
-					filter(value => (
-						value !== 0
-						&& value % 2 === 1
-					)),
-				)
-			),
-			zero1$: (
-				threadA$
-				.pipe(
-					filter(value => (
-						value !== 0
-						&& value % 2 === 0
-					)),
-					mapTo(0),
-				)
-			),
-			zero2$: (
-				threadA$
-				.pipe(
-					filter(value => (
-						value !== 0
-						&& value % 2 === 1
-					)),
-					mapTo(0),
-				)
-			),
-		})),
 		concatMap(({
 			even$,
 			odd$,
