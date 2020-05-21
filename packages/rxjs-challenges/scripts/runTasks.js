@@ -17,6 +17,10 @@ const tasks = {
 	lintScripts: () => (
 		require('./tasks/lintScripts$')
 	),
+	loadBalancer: () => (
+		require('./tasks/loadBalancer')
+		.loadBalancer()
+	),
 	printInOrder: () => (
 		// https://leetcode.com/problems/print-in-order/
 		require('./tasks/printInOrder')
@@ -40,7 +44,7 @@ const tasks = {
 const tasksList = {
 	develop: [
 		tasks.lintScripts,
-		tasks.diningPhilosophers,
+		tasks.loadBalancer,
 	],
 }
 
