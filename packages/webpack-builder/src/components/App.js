@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { css, Global } from '@emotion/core'
 import { hot } from 'react-hot-loader/root'
 
-import CanIWin from './canIWin/CanIWin'
+import RecoilExampleRoot from './recoilExample/RecoilExampleRoot'
 
 const App = () => (
 	<Fragment>
@@ -14,10 +14,7 @@ const App = () => (
 			`}
 		/>
 
-		<CanIWin
-			desiredTotal={67}
-			maxChoosableInteger={15}
-		/>
+		<RecoilExampleRoot />
 	</Fragment>
 )
 
