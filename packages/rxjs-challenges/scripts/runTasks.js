@@ -21,6 +21,15 @@ const tasks = {
 		// https://leetcode.com/problems/print-in-order/
 		require('./tasks/printInOrder')
 	),
+	wordLadderII: () => (
+		// https://leetcode.com/problems/word-ladder-ii/
+		require('./tasks/wordLadderII')
+		.transformPaths({
+			beginWord: "hit",
+			endWord: "cog",
+			wordList: ["hot","dot","dog","lot","log","cog"],
+		})
+	),
 	zeroEvenOdd: () => (
 		// https://leetcode.com/problems/print-zero-even-odd/
 		require('./tasks/zeroEvenOdd')
