@@ -72,6 +72,7 @@ const Main = () => {
 
 			setTypingSpeed(
 				(
+					// eslint-disable-next-line compat/compat
 					numberOfTypedLettersRef.current / (performance.now() - startingTimeRef.current) / (1000 * 60)
 				)
 				.toFixed(2)

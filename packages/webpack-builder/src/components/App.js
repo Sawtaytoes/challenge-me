@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { css, Global } from '@emotion/core'
 import { hot } from 'react-hot-loader/root'
 
-import RecoilExampleRoot from './recoilExample/RecoilExampleRoot'
+import DiningPhilosophers from './diningPhilosophersObservableHooks/DiningPhilosophers'
 
 const App = () => (
 	<Fragment>
@@ -14,7 +14,9 @@ const App = () => (
 			`}
 		/>
 
-		<RecoilExampleRoot />
+		<DiningPhilosophers
+			numberOfHungerAttacks={3}
+		/>
 	</Fragment>
 )
 
