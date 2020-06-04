@@ -49,6 +49,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "helmet": "^3.22.0",
+    "observable-hooks": "^2.3.5",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-hot-loader": "^4.12.19",
