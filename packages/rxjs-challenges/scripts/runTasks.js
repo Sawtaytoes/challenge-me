@@ -44,7 +44,7 @@ const tasks = {
 const tasksList = {
 	develop: [
 		tasks.lintScripts,
-		tasks.loadBalancer,
+		// tasks.loadBalancer,
 	],
 }
 
