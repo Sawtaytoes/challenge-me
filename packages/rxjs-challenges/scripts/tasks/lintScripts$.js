@@ -1,5 +1,6 @@
 const {
 	catchError,
+	filter,
 	tap,
 } = require('rxjs/operators')
 
@@ -11,6 +12,7 @@ const lintScripts$ = (
 		'./scripts/**/*.js',
 	])
 	.pipe(
+		filter(Boolean),
 		tap(console.info),
 		catchError((
 			error,
