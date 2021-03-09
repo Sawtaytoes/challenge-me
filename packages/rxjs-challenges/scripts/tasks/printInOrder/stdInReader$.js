@@ -1,4 +1,9 @@
-const { filter, ignoreElements, map, tap } = require('rxjs/operators')
+const {
+	filter,
+	ignoreElements,
+	map,
+	tap,
+} = require('rxjs/operators')
 const { fromEvent } = require('rxjs')
 
 const eventEmitter = require('./eventEmitter')

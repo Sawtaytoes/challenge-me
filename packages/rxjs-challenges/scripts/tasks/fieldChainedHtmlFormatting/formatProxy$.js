@@ -33,11 +33,15 @@ const proxyOptions = {
 				createStringFormatter({
 					formatHtmlString: (
 						Object.is(
-							typeof(proxy),
+							typeof proxy,
 							'function',
 						)
 						? proxy
-						: value => value
+						: (
+							(value) => (
+								value
+							)
+						)
 					),
 					htmlTagName: propertyName,
 				}),
@@ -64,7 +68,10 @@ const Format = (
 const formatProxy$ = (
 	from([
 		Format.div.h1('Hello world!'),
-		Format.div.p.span('Foo', 'Bar'),
+		Format.div.p.span(
+			'Foo',
+			'Bar'
+		),
 	])
 	.pipe(
 		tap((

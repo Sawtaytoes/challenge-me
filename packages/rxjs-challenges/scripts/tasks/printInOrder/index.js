@@ -1,4 +1,7 @@
-const { fromEvent, merge } = require('rxjs')
+const {
+	fromEvent,
+	merge,
+} = require('rxjs')
 const { takeUntil } = require('rxjs/operators')
 
 const eventEmitter = require('./eventEmitter')

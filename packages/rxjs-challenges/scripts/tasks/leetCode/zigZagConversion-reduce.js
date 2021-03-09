@@ -40,7 +40,10 @@ const convert = (
 
 				return (
 					rows
-					.slice(0, rowIndex)
+					.slice(
+						0,
+						rowIndex,
+					)
 					.concat(
 						(
 							rows[rowIndex]
@@ -60,3 +63,5 @@ const convert = (
 		.join('')
 	)
 }
+
+module.exports = convert

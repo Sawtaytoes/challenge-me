@@ -1,7 +1,22 @@
-const { catchError, concatAll, concatMap, filter, map, mapTo, take, tap, toArray } = require('rxjs/operators')
-const { of, zip } = require('rxjs')
+const {
+	catchError,
+	concatAll,
+	concatMap,
+	filter,
+	map,
+	mapTo,
+	take,
+	tap,
+	toArray,
+} = require('rxjs/operators')
+const {
+	of,
+	zip,
+} = require('rxjs')
 
-const { threadA$, threadB$, threadC$ } = require('./zeroEvenOddThreads')
+const {
+ threadA$, threadB$, threadC$,
+} = require('./zeroEvenOddThreads')
 
 const createZeroEvenOddObservable = (
 	numberOfOutputValues,
@@ -10,7 +25,7 @@ const createZeroEvenOddObservable = (
 		even$: (
 			threadB$
 			.pipe(
-				filter(value => (
+				filter((value) => (
 					value !== 0
 					&& value % 2 === 0
 				)),
@@ -19,7 +34,7 @@ const createZeroEvenOddObservable = (
 		odd$: (
 			threadC$
 			.pipe(
-				filter(value => (
+				filter((value) => (
 					value !== 0
 					&& value % 2 === 1
 				)),
@@ -28,7 +43,7 @@ const createZeroEvenOddObservable = (
 		zero1$: (
 			threadA$
 			.pipe(
-				filter(value => (
+				filter((value) => (
 					value !== 0
 					&& value % 2 === 0
 				)),
@@ -38,7 +53,7 @@ const createZeroEvenOddObservable = (
 		zero2$: (
 			threadA$
 			.pipe(
-				filter(value => (
+				filter((value) => (
 					value !== 0
 					&& value % 2 === 1
 				)),

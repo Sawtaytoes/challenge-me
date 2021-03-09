@@ -22,7 +22,7 @@ const createStringFormatter = ({
 )
 
 const createFormatterProperties = (
-	formatHtmlString = value => value,
+	formatHtmlString = (value) => value,
 ) => (
 	htmlTagNames
 	.reduce(
@@ -69,7 +69,10 @@ const Format = (
 const formatObjectCreate$ = (
 	from([
 		Format.div.h1('Hello world!'),
-		Format.div.p.span('Foo', 'Bar'),
+		Format.div.p.span(
+			'Foo',
+			'Bar'
+		),
 	])
 	.pipe(
 		tap((

@@ -55,3 +55,5 @@ const convert = (
 		.join('')
 	)
 }
+
+module.exports = convert

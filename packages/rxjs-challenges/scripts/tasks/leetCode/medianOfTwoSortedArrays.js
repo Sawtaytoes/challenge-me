@@ -19,7 +19,10 @@ const getArrayMedianData = (
 	const middleIndex = Math.ceil(array.length / 2) - 1
 
 	return (
-		array.length % 2
+		(
+			array.length
+			% 2
+		)
 		? array[middleIndex]
 		: (
 			div(
@@ -52,3 +55,5 @@ const findMedianSortedArrays = (
 		))
 	)
 )
+
+module.exports = findMedianSortedArrays

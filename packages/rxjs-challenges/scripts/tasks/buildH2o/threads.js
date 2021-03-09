@@ -15,7 +15,7 @@ const logger = (
 	element
 ) => (
 	() => {
-		outputRef.current += element
+		outputRef.current = outputRef.current + element
 	}
 )
 

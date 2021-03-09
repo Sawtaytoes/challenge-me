@@ -1,12 +1,18 @@
-const { BehaviorSubject, Subject } = require('rxjs')
-const { catchError, scan } = require('rxjs/operators')
+const {
+	BehaviorSubject,
+	Subject,
+} = require('rxjs')
+const {
+	catchError,
+	scan,
+} = require('rxjs/operators')
 
 const diningStateReducer = (
 	state,
 	{
-		philosopherIndex,
 		forkId,
 		forkState,
+		philosopherIndex,
 	},
 ) => ({
 	...state,

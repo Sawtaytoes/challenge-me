@@ -1,4 +1,7 @@
-const { catchError, tap } = require('rxjs/operators')
+const {
+	catchError,
+	tap,
+} = require('rxjs/operators')
 
 const createEslintObservable = require('./utils/createEslintObservable')
 

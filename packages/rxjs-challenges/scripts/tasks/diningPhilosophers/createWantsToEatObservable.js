@@ -1,7 +1,21 @@
-const { concatMap, map, mapTo, tap } = require('rxjs/operators')
-const { EMPTY, merge, of, Subject, timer, zip } = require('rxjs')
+const {
+	concatMap,
+	map,
+	mapTo,
+	tap,
+} = require('rxjs/operators')
+const {
+	EMPTY,
+	merge,
+	of,
+	Subject,
+	timer,
+	zip,
+} = require('rxjs')
 
-const { diningState$, updateDiningState$ } = require('./diningState')
+const {
+ diningState$, updateDiningState$,
+} = require('./diningState')
 const { forks } = require('./ids')
 
 const getRandomTime = () => (
@@ -32,9 +46,9 @@ const createWantsToEatObservable = (
 	) => {
 		updateDiningState$
 		.next({
-			philosopherIndex,
 			forkId: forks.left,
 			forkState: true,
+			philosopherIndex,
 		})
 	}
 
@@ -43,9 +57,9 @@ const createWantsToEatObservable = (
 	) => {
 		updateDiningState$
 		.next({
-			philosopherIndex,
 			forkId: forks.right,
 			forkState: true,
+			philosopherIndex,
 		})
 	}
 
@@ -54,9 +68,9 @@ const createWantsToEatObservable = (
 	) => {
 		updateDiningState$
 		.next({
-			philosopherIndex,
 			forkId: forks.left,
 			forkState: false,
+			philosopherIndex,
 		})
 	}
 
@@ -65,9 +79,9 @@ const createWantsToEatObservable = (
 	) => {
 		updateDiningState$
 		.next({
-			philosopherIndex,
 			forkId: forks.right,
 			forkState: false,
+			philosopherIndex,
 		})
 	}
 

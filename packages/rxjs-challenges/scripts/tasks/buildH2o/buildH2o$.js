@@ -1,7 +1,21 @@
-const { concatMap, filter, ignoreElements, pluck, scan, tap } = require('rxjs/operators')
-const { of, pipe, zip } = require('rxjs')
+const {
+	concatMap,
+	filter,
+	ignoreElements,
+	pluck,
+	scan,
+	tap,
+} = require('rxjs/operators')
+const {
+	of,
+	pipe,
+	zip,
+} = require('rxjs')
 
-const { hydrogenThread$, oxygenThread$ } = require('./threads')
+const {
+	hydrogenThread$,
+	oxygenThread$,
+} = require('./threads')
 
 const hydrogenSplitter = ({
 	numberOfSplits,

@@ -69,7 +69,7 @@ class ZeroEvenOdd {
 				value
 			)
 
-			this.printedNumbers += 1
+			this.printedNumbers = this.printedNumbers + 1
 		}
 	}
 
@@ -105,7 +105,10 @@ class ZeroEvenOdd {
 			),
 		})
 
-		this.nextIndexes.zero += 1
+		this.nextIndexes.zero = (
+			this.nextIndexes.zero
+			+ 1
+		)
 	}
 
 	even(sendValue) {
@@ -136,8 +139,15 @@ class ZeroEvenOdd {
 			nextExecutionState: 'zero',
 		})
 
-		this.nextIndexes.even += 1
-		this.nextValues.even += 2
+		this.nextIndexes.even = (
+			this.nextIndexes.even
+			+ 1
+		)
+
+		this.nextValues.even = (
+			this.nextValues.even
+			+ 2
+		)
 	}
 
 	odd(sendValue) {
@@ -168,8 +178,15 @@ class ZeroEvenOdd {
 			nextExecutionState: 'zero',
 		})
 
-		this.nextIndexes.odd += 1
-		this.nextValues.odd += 2
+		this.nextIndexes.odd = (
+			this.nextIndexes.odd
+			+ 1
+		)
+
+		this.nextValues.odd = (
+			this.nextValues.odd
+			+ 2
+		)
 	}
 }
 
@@ -178,8 +195,8 @@ const zeroEvenOdd = new ZeroEvenOdd(5)
 // eslint-disable-next-line no-unused-vars
 let output = ''
 
-const joinToOutput = value => {
-	output += value
+const joinToOutput = (value) => {
+	output = output + value
 }
 
 zeroEvenOdd.even(joinToOutput)

@@ -44,7 +44,7 @@ const createEslintObservable = (
 		errorCount > 0
 		? (
 			observer.error({
-				error: "One or more ESLint errors occurred.",
+				error: 'One or more ESLint errors occurred.',
 				errorCount,
 			})
 		)

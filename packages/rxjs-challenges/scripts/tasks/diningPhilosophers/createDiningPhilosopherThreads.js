@@ -1,8 +1,19 @@
-const { concatMap, groupBy, map, mergeAll, mergeMap, tap, toArray } = require('rxjs/operators')
+const {
+	concatMap,
+	groupBy,
+	map,
+	mergeAll,
+	mergeMap,
+	tap,
+	toArray,
+} = require('rxjs/operators')
 const { range } = require('rxjs')
 
 const createWantsToEatObservable = require('./createWantsToEatObservable')
-const { forks, operations } = require('./ids')
+const {
+	forks,
+	operations,
+} = require('./ids')
 const { stateSubscription } = require('./diningState')
 
 const logger = (

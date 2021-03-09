@@ -1,7 +1,19 @@
 const nodeChildProcess = require('child_process')
 const os = require('os')
-const { filter, ignoreElements, map, mergeAll, takeUntil, tap } = require('rxjs/operators')
-const { from, fromEvent, Observable, Subject } = require('rxjs')
+const {
+	filter,
+	ignoreElements,
+	map,
+	mergeAll,
+	takeUntil,
+	tap,
+} = require('rxjs/operators')
+const {
+	from,
+	fromEvent,
+	Observable,
+	Subject,
+} = require('rxjs')
 const { v4: uuidv4 } = require('uuid')
 
 // const threadEmitter = require('./threadEmitter')
@@ -36,7 +48,9 @@ const loadBalancer = () => {
 				.resolve(
 					'./childProcess.js'
 				),
-				[index],
+				[
+					index,
+				],
 			)
 		))
 	)
@@ -112,7 +126,9 @@ const loadBalancer = () => {
 					.create((
 						observer,
 					) => {
-						const [childProcess] = (
+						const [
+							childProcess,
+						] = (
 							availableChildProcesses
 						)
 

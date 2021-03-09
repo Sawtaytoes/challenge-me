@@ -29,9 +29,16 @@ const tasks = {
 		// https://leetcode.com/problems/word-ladder-ii/
 		require('./tasks/wordLadderII')
 		.transformPaths({
-			beginWord: "hit",
-			endWord: "cog",
-			wordList: ["hot","dot","dog","lot","log","cog"],
+			beginWord: 'hit',
+			endWord: 'cog',
+			wordList: [
+				'hot',
+				'dot',
+				'dog',
+				'lot',
+				'log',
+				'cog',
+			],
 		})
 	),
 	zeroEvenOdd: () => (
@@ -56,7 +63,9 @@ const runTasks = ({
 			taskNames
 		)
 		? taskNames
-		: [taskNames]
+		: [
+			taskNames,
+		]
 	)
 	.pipe(
 		concatMap((
@@ -83,7 +92,7 @@ const runTasks = ({
 			)
 
 			console.info(
-				"Completed running all tasks."
+				'Completed running all tasks.'
 			)
 
 			console.info(
@@ -92,7 +101,7 @@ const runTasks = ({
 
 			process.exit()
 		},
-		error: error => {
+		error: (error) => {
 			console.error(
 				error
 			)

@@ -1,5 +1,21 @@
-const { from, merge, of, Subject } = require('rxjs')
-const { delay, filter, ignoreElements, map, mapTo, mergeMap, reduce, scan, tap, toArray } = require('rxjs/operators')
+const {
+	from,
+	merge,
+	of,
+	Subject,
+} = require('rxjs')
+const {
+	delay,
+	filter,
+	ignoreElements,
+	map,
+	mapTo,
+	mergeMap,
+	reduce,
+	scan,
+	tap,
+	toArray,
+} = require('rxjs/operators')
 
 const transformPaths = ({
 	beginWord,
@@ -19,8 +35,14 @@ const transformPaths = ({
 				command,
 			) => (
 				command === 'addActivePath'
-				? numberOfActivePaths + 1
-				: numberOfActivePaths - 1
+				? (
+					numberOfActivePaths
+					+ 1
+				)
+				: (
+					numberOfActivePaths
+					- 1
+				)
 			),
 			0,
 		),
@@ -80,7 +102,9 @@ const transformPaths = ({
 					of({
 						availablePaths,
 						currentPath,
-						transformations: [beginWord],
+						transformations: [
+							beginWord,
+						],
 					}),
 				)
 			)),
@@ -232,7 +256,9 @@ const transformPaths = ({
 					transformations,
 				) => (
 					finalTransformations
-					.concat([transformations])
+					.concat([
+transformations,
+])
 				),
 				[],
 			),
@@ -240,6 +266,5 @@ const transformPaths = ({
 		)
 	)
 }
-
 
 module.exports = transformPaths

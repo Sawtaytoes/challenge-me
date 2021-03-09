@@ -29,12 +29,14 @@ const convert = (
 		)
 	)
 
-	const previousRowLengths = [0]
+	const previousRowLengths = [
+		0,
+	]
 
 	for (
-		let rowIndex = 0
-		; rowIndex < numberOfRows
-		; rowIndex++
+		let rowIndex = 0;
+		rowIndex < numberOfRows;
+		rowIndex++
 	) {
 		const isMiddleRow = (
 			rowIndex !== 0
@@ -73,8 +75,17 @@ const convert = (
 		const rowLength = (
 			(
 				isMiddleRow
-				? (numberOfGroups - 1) * 2
-				: (numberOfGroups - 1)
+				? (
+					(
+						numberOfGroups
+						- 1
+					)
+					* 2
+				)
+				: (
+					numberOfGroups
+					- 1
+				)
 			)
 			+ numberInLastGroupRow
 		)
@@ -89,9 +100,9 @@ const convert = (
 	const characterArray = []
 
 	for (
-		let index = 0
-		; index < numberOfCharacters
-		; index++
+		let index = 0;
+		index < numberOfCharacters;
+		index++
 	) {
 		const character = string[index]
 
@@ -152,3 +163,5 @@ const convert = (
 		.join('')
 	)
 }
+
+module.exports = convert

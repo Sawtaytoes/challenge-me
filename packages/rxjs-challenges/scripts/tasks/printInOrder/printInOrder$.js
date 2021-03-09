@@ -1,7 +1,17 @@
-const { concatMap, map, mapTo, tap } = require('rxjs/operators')
-const { of, zip } = require('rxjs')
+const {
+	concatMap,
+	map,
+	mapTo,
+	tap,
+} = require('rxjs/operators')
+const {
+	of,
+	zip,
+} = require('rxjs')
 
-const { threadA$, threadB$, threadC$ } = require('./threads')
+const {
+ threadA$, threadB$, threadC$,
+} = require('./threads')
 
 const printInOrder$ = (
 	of({
